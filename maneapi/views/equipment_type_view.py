@@ -55,7 +55,7 @@ class EquipmentTypeView(ViewSet):
         equipment_type.label = label
         equipment_type.save()
 
-        serialized = EquipmentTypeSerializer( equipment_type)
+        serialized = EquipmentTypeSerializer(equipment_type)
         return Response(serialized.data, status=status.HTTP_201_CREATED)
 
 
@@ -65,4 +65,4 @@ class EquipmentTypeSerializer(serializers.ModelSerializer):
     class Meta:
         """JSON serializer for equipmentType creator"""
         model = EquipmentType
-        fields = ( 'id', 'label', )
+        fields = ('id', 'label', 'current_equipment')
